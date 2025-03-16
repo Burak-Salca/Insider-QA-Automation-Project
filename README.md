@@ -11,6 +11,7 @@ Test sonuçlarını detaylı bir şekilde görüntülemek için Allure Report ku
 - Kritik adımların görsel kayıtları
 
 Projenin allure test raporuna [buradan](https://insider-qa-automation-project.vercel.app/) ulaşabilirsiniz.
+
 Projenin github repsouna [buradan](https://github.com/Burak-Salca/Insider-QA-Automation-Project) ulaşabilirsiniz.
 
 ## 🎯 Proje Özellikleri

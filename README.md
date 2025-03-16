@@ -4,21 +4,20 @@ Bu proje, Amazon Türkiye web sitesinde ürün arama, sepete ekleme ve sepetten 
 
 ## 📊 Test Raporu
 
-Test sonuçlarını detaylı bir şekilde görüntülemek için Allure Report kullanılmıştır. Raporlarda:
+Test sonuçlarını detaylı bir şekilde görüntülemek için Allure Report kullanılmıştır. Raporun içeriği şu şekildedir.
 - Test adımlarının detaylı açıklamaları
 - Başarılı/Başarısız test sayıları
 - Test süreleri
 - Kritik adımların görsel kayıtları
 
-bulunmaktadır.
-
-Detaylı test raporuna [buradan](https://insider-qa-automation-project.vercel.app/) ulaşabilirsiniz.
+Projenin allure test raporuna [buradan](https://insider-qa-automation-project.vercel.app/) ulaşabilirsiniz.
+Projenin github repsouna [buradan](https://github.com/Burak-Salca/Insider-QA-Automation-Project) ulaşabilirsiniz.
 
 ## 🎯 Proje Özellikleri
 
 - **Dinamik Test Yapısı**: Test senaryoları parametrik olarak tasarlanmıştır:
   - İstenilen herhangi bir ürün araması yapılabilir
-  - Herhangi bir sayfa numarasına gidilebilir
+  - Herhangi bir arama sonuç sayfa numarasına gidilebilir
   - Seçilen sayfadaki herhangi bir ürüne erişilebilir
 - **Page Object Model**: Her sayfa için ayrı class'lar oluşturularak kod tekrarı önlenmiş ve bakım kolaylığı sağlanmıştır
 - **Clean Code**: Locator'lar ve metodlar düzenli bir şekilde organize edilmiştir

@@ -24,7 +24,7 @@ Test sonuçlarını detaylı bir şekilde görüntülemek için Allure Report ku
 
 bulunmaktadır.
 
-Detaylı test raporlarına [buradan](https://example.com/allure-report) ulaşabilirsiniz.
+Detaylı test raporlarına [buradan](https://insider-qa-automation-project.vercel.app/) ulaşabilirsiniz.
 
 ## 🔍 Test Senaryosu
 

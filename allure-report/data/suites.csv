@@ -1,0 +1,2 @@
+"DESCRİPTİON","DURATİON İN MS","NAME","PARENT SUİTE","START TİME","STATUS","STOP TİME","SUB SUİTE","SUİTE","TEST CLASS","TEST METHOD"
+"","22410","İstenilen ürünün sepete eklenip çıkarılma testi ","Default Suite","Sun Mar 16 06:55:59 TRT 2025","passed","Sun Mar 16 06:56:21 TRT 2025","PositiveTestCase","Insider-QA-Automation-Project","PositiveTestCase","ProductAddToCartTest"

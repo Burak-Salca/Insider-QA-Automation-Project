@@ -2,6 +2,18 @@
 
 Bu proje, Amazon Türkiye web sitesinde ürün arama, sepete ekleme ve sepetten çıkarma işlemlerini test eden kapsamlı bir otomasyon projesidir. Page Object Model (POM) tasarım deseni kullanılarak geliştirilmiş olup, yüksek düzeyde bakım yapılabilirlik ve yeniden kullanılabilirlik sağlamaktadır.
 
+## 📊 Test Raporu
+
+Test sonuçlarını detaylı bir şekilde görüntülemek için Allure Report kullanılmıştır. Raporlarda:
+- Test adımlarının detaylı açıklamaları
+- Başarılı/Başarısız test sayıları
+- Test süreleri
+- Kritik adımların görsel kayıtları
+
+bulunmaktadır.
+
+Detaylı test raporuna [buradan](https://insider-qa-automation-project.vercel.app/) ulaşabilirsiniz.
+
 ## 🎯 Proje Özellikleri
 
 - **Dinamik Test Yapısı**: Test senaryoları parametrik olarak tasarlanmıştır:
@@ -12,19 +24,6 @@ Bu proje, Amazon Türkiye web sitesinde ürün arama, sepete ekleme ve sepetten 
 - **Clean Code**: Locator'lar ve metodlar düzenli bir şekilde organize edilmiştir
 - **Detaylı Raporlama**: Allure Report kullanılarak kapsamlı test raporları oluşturulmuştur
 - **Görsel Doğrulama**: Kritik test adımlarında screenshot'lar alınarak görsel doğrulama sağlanmıştır
-
-## 📊 Test Raporu
-
-Test sonuçlarını detaylı bir şekilde görüntülemek için Allure Report kullanılmıştır. Raporlarda:
-- Test adımlarının detaylı açıklamaları
-- Başarılı/Başarısız test sayıları
-- Test süreleri
-- Hata durumunda screenshot'lar
-- Kritik adımların görsel kayıtları
-
-bulunmaktadır.
-
-Detaylı test raporlarına [buradan](https://insider-qa-automation-project.vercel.app/) ulaşabilirsiniz.
 
 ## 🔍 Test Senaryosu
 

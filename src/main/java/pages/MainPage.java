@@ -3,9 +3,7 @@ package pages;
 import base.BaseLibrary;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import util.Actions;
 
@@ -38,11 +36,9 @@ public class MainPage extends BaseLibrary {
 
     @Step("Arama çubuğuna istenilen ürün girilir")
     public MainPage enterSearchBox(String searchData){
-        WebElement searchBoxElement = driver.findElement(SEARCH_BOX);
-        searchBoxElement.sendKeys(searchData, Keys.ENTER);
+        actions.sendKey(SEARCH_BOX,searchData);
         try{
-            WebElement searchResultElement = wait.until(ExpectedConditions.presenceOfElementLocated(SEARCH_RESULT_TEXT));
-            String searchTextResult = searchResultElement.getText().toLowerCase();
+            String searchTextResult = actions.getTextFromElement(SEARCH_RESULT_TEXT);
             Assert.assertTrue(searchTextResult.contains(searchData), "Arama başarılı olmadı! Beklenen: 'samsung', Ancak Bulunan: " + searchTextResult);
             screenshot();
             System.out.println("Arama başarıyla gerçekleşti ve doğrulandı.");

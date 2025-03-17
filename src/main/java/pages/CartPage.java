@@ -37,16 +37,14 @@ public class CartPage extends BaseLibrary {
     @Step("Sepet sayfasında doğru ürün mü eklenmiş kontrol edilir")
     public CartPage findProduct(String productName){
         try {
-            WebElement cartHeader = wait.until(ExpectedConditions.presenceOfElementLocated(CART_HEADER));
-            String headerText = cartHeader.getText().trim();
+            String headerText = actions.getTextFromElement(CART_HEADER);
             Assert.assertTrue(headerText.contains("Alışveriş Sepeti"), "Sepet sayfası doğrulanamadı! Beklenen: 'Alışveriş Sepeti', Ancak Bulunan: " + headerText);
             System.out.println("Sepet sayfasına başarıyla ulaşıldı.");
         } catch (Exception e) {
             Assert.fail("Sepet sayfası doğrulanamadı: " + e.getMessage());
         }
         try {
-            WebElement cartProductTitleElement = wait.until(ExpectedConditions.presenceOfElementLocated(CART_PRODUCT_TITLE));
-            String cartProductTitle = cartProductTitleElement.getText().trim();
+            String cartProductTitle = actions.getTextFromElement(CART_PRODUCT_TITLE);
             String normalizedCartProductTitle = cartProductTitle.replaceAll("[.]{3,}|…", "").trim();
             String normalizedProductTitle = productName.replaceAll("[.]{3,}|…", "").trim();
             Assert.assertTrue(normalizedProductTitle.contains(normalizedCartProductTitle),"Sepete eklenen ürün, seçilen ürünle eşleşmiyor! Beklenen: '" + normalizedProductTitle + "', Ancak Bulunan: '" + normalizedCartProductTitle + "'");
@@ -69,8 +67,7 @@ public class CartPage extends BaseLibrary {
                 if (cartProductName.contains(productName.substring(0, Math.min(productName.length(), 136)))) {
                     actions.clickButton(DELETE_BUTTON);
                     wait.until(ExpectedConditions.stalenessOf(item));
-                    WebElement removedMessage = wait.until(ExpectedConditions.presenceOfElementLocated(REMOVED_MESSAGE));
-                    String removedText = removedMessage.getText();
+                    String removedText = actions.getTextFromElement(REMOVED_MESSAGE);
                     Assert.assertTrue(removedText.contains("Alışveriş Sepetiniz konumundan kaldırıldı"), "Ürün silme işlemi başarısız!");
                     screenshot();
                     System.out.println("Ürün başarıyla silindi ve doğrulandı: " + cartProductName);

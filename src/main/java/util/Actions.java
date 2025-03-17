@@ -3,11 +3,47 @@ package util;
 import base.BaseLibrary;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class Actions extends BaseLibrary {
+
+    public void validationUrl(String urlData){
+        String currentUrl = driver.getCurrentUrl();
+        wait.until(ExpectedConditions.urlContains(urlData));
+        Assert.assertEquals(currentUrl, urlData, "Ana sayfa doğrulanamadı! Beklenen URL: " + urlData + "Ancak Bulunan: " + currentUrl);
+        System.out.println("Ana sayfaya başarıyla doğrulandı.");
+    }
+
+    public void clickButton(By locater){
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(locater));
+        button.click();
+    }
+
+    public void sendKey(By locater, String key){
+        WebElement element = driver.findElement(locater);
+        element.sendKeys(key, Keys.ENTER);
+    }
+
+    public String getTextFromElement(By locater){
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locater));
+        return element.getText().trim();
+    }
+
+    public void scrollToElementSmoothly(WebElement element) {
+        try {
+            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300);");
+            Thread.sleep(500);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
+            wait.until(ExpectedConditions.visibilityOf(element));
+            System.out.println("Scroll işlemi başarıyla yapıldı.");
+        } catch (Exception e) {
+            Assert.fail("Scroll işlemi başarısız: " + e.getMessage());
+        }
+    }
+
 
     public void goToPage(int pageNumber) {
         WebElement paginationBar = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("s-pagination-strip")));
@@ -35,8 +71,8 @@ public class Actions extends BaseLibrary {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", product);
             WebElement productLink = product.findElement(By.xpath(".//a[contains(@class, 'a-link-normal') and contains(@class, 's-no-outline')]"));
             WebElement h2TitleElement = product.findElement(By.xpath(".//h2"));
-            screenshot();
             String productTitle = h2TitleElement.getText().trim();
+            screenshot();
             productLink.click();
             System.out.println("Ürün başarılı bir şekilde seçildi");
             return productTitle;
@@ -45,29 +81,4 @@ public class Actions extends BaseLibrary {
             return ("Ürün seçme işlemi başarısız oldu: " + e.getMessage());
         }
     }
-
-    public void scrollToElementSmoothly(WebElement element) {
-        try {
-            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300);");
-            Thread.sleep(500);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
-            wait.until(ExpectedConditions.visibilityOf(element));
-            System.out.println("Scroll işlemi başarıyla yapıldı.");
-        } catch (Exception e) {
-            Assert.fail("Scroll işlemi başarısız: " + e.getMessage());
-        }
-    }
-
-    public void validationUrl(String urlData){
-        String currentUrl = driver.getCurrentUrl();
-        wait.until(ExpectedConditions.urlContains(urlData));
-        Assert.assertEquals(currentUrl, urlData, "Ana sayfa doğrulanamadı! Beklenen URL: " + urlData + "Ancak Bulunan: " + currentUrl);
-        System.out.println("Ana sayfaya başarıyla doğrulandı.");
-    }
-
-    public void clickButton(By locater){
-        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(locater));
-        button.click();
-    }
-
 }
